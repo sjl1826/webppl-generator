@@ -111,26 +111,26 @@ const chunks = [
     entry: 'generators/javascript/all.js',
     reexport: 'Blockly.JavaScript',
   },
-  {
-    name: 'python',
-    entry: 'generators/python/all.js',
-    reexport: 'Blockly.Python',
-  },
-  {
-    name: 'php',
-    entry: 'generators/php/all.js',
-    reexport: 'Blockly.PHP',
-  },
-  {
-    name: 'lua',
-    entry: 'generators/lua/all.js',
-    reexport: 'Blockly.Lua',
-  },
-  {
-    name: 'dart',
-    entry: 'generators/dart/all.js',
-    reexport: 'Blockly.Dart',
-  }
+  // {
+  //   name: 'python',
+  //   entry: 'generators/python/all.js',
+  //   reexport: 'Blockly.Python',
+  // },
+  // {
+  //   name: 'php',
+  //   entry: 'generators/php/all.js',
+  //   reexport: 'Blockly.PHP',
+  // },
+  // {
+  //   name: 'lua',
+  //   entry: 'generators/lua/all.js',
+  //   reexport: 'Blockly.Lua',
+  // },
+  // {
+  //   name: 'dart',
+  //   entry: 'generators/dart/all.js',
+  //   reexport: 'Blockly.Dart',
+  // }
 ];
 
 const licenseRegex = `\\/\\*\\*
@@ -252,30 +252,30 @@ var JSCOMP_OFF = [
  * Also updates tests/deps.mocha.js, used by the mocha test suite.
  */
 function buildDeps(done) {
-  const closurePath = argv.closureLibrary ?
-      'node_modules/google-closure-library/closure/goog' :
-      'closure/goog';
+  // const closurePath = argv.closureLibrary ?
+  //     'node_modules/google-closure-library/closure/goog' :
+  //     'closure/goog';
 
-  const coreDir = argv.compileTs ? path.join(TSC_OUTPUT_DIR, 'core') : 'core';
-  const roots = [
-    closurePath,
-    coreDir,
-    'blocks',
-    'generators',
-  ];
+  // const coreDir = argv.compileTs ? path.join(TSC_OUTPUT_DIR, 'core') : 'core';
+  // const roots = [
+  //   closurePath,
+  //   coreDir,
+  //   'blocks',
+  //   'generators',
+  // ];
 
-  const testRoots = [
-    ...roots,
-    'tests/mocha'
-  ];
+  // const testRoots = [
+  //   ...roots,
+  //   'tests/mocha'
+  // ];
 
-  const args = roots.map(root => `--root '${root}' `).join('');
-  execSync(`closure-make-deps ${args} > tests/deps.js`, {stdio: 'inherit'});
+  // const args = roots.map(root => `--root '${root}' `).join('');
+  // execSync(`closure-make-deps ${args} > tests/deps.js`, {stdio: 'inherit'});
 
-  // Use grep to filter out the entries that are already in deps.js.
-  const testArgs = testRoots.map(root => `--root '${root}' `).join('');
-  execSync(`closure-make-deps ${testArgs} | grep 'tests/mocha'` +
-      ' > tests/deps.mocha.js', {stdio: 'inherit'});
+  // // Use grep to filter out the entries that are already in deps.js.
+  // const testArgs = testRoots.map(root => `--root '${root}' `).join('');
+  // execSync(`closure-make-deps ${testArgs} | grep 'tests/mocha'` +
+  //     ' > tests/deps.mocha.js', {stdio: 'inherit'});
   done();
 };
 
@@ -315,22 +315,22 @@ this removal!
  */
 function buildLangfiles(done) {
   // Create output directory.
-  const outputDir = path.join(BUILD_DIR, 'msg', 'js');
-  fs.mkdirSync(outputDir, {recursive: true});
+  // const outputDir = path.join(BUILD_DIR, 'msg', 'js');
+  // fs.mkdirSync(outputDir, {recursive: true});
 
-  // Run create_messages.py.
-  let json_files = fs.readdirSync(path.join('msg', 'json'));
-  json_files = json_files.filter(file => file.endsWith('json') &&
-      !(new RegExp(/(keys|synonyms|qqq|constants)\.json$/).test(file)));
-  json_files = json_files.map(file => path.join('msg', 'json', file));
-  const createMessagesCmd = `python3 ./scripts/i18n/create_messages.py \
-  --source_lang_file ${path.join('msg', 'json', 'en.json')} \
-  --source_synonym_file ${path.join('msg', 'json', 'synonyms.json')} \
-  --source_constants_file ${path.join('msg', 'json', 'constants.json')} \
-  --key_file ${path.join('msg', 'json', 'keys.json')} \
-  --output_dir ${outputDir} \
-  --quiet ${json_files.join(' ')}`;
-  execSync(createMessagesCmd, {stdio: 'inherit'});
+  // // Run create_messages.py.
+  // let json_files = fs.readdirSync(path.join('msg', 'json'));
+  // json_files = json_files.filter(file => file.endsWith('json') &&
+  //     !(new RegExp(/(keys|synonyms|qqq|constants)\.json$/).test(file)));
+  // json_files = json_files.map(file => path.join('msg', 'json', file));
+  // const createMessagesCmd = `python3 ./scripts/i18n/create_messages.py \
+  // --source_lang_file ${path.join('msg', 'json', 'en.json')} \
+  // --source_synonym_file ${path.join('msg', 'json', 'synonyms.json')} \
+  // --source_constants_file ${path.join('msg', 'json', 'constants.json')} \
+  // --key_file ${path.join('msg', 'json', 'keys.json')} \
+  // --output_dir ${outputDir} \
+  // --quiet ${json_files.join(' ')}`;
+  // execSync(createMessagesCmd, {stdio: 'inherit'});
 
   done();
 };

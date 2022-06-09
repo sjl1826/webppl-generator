@@ -72,6 +72,24 @@ const blocks = createBlockDefinitionsFromJsonArray([
     'helpUrl': '%{BKY_VARIABLES_SET_HELPURL}',
     'extensions': ['contextMenu_variableSetterGetter'],
   },
+
+  // Block for inference function.
+  {
+    'type': 'infer_func',
+    'message0': 'infer %1',
+    'args0': [
+      {
+        'type': 'field_variable',
+        'name': 'VAR',
+        'variable': '%{BKY_VARIABLES_DEFAULT_NAME}',
+      },
+    ],
+    'previousStatement': null,
+    'helpUrl': '%{BKY_VARIABLES_SET_HELPURL}',
+    'style': 'variable_blocks',
+    'tooltip': '%{BKY_VARIABLES_SET_TOOLTIP}',
+    'extensions': ['contextMenu_variableSetterGetter'],
+  },
 ]);
 exports.blocks = blocks;
 
