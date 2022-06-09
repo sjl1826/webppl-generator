@@ -30,3 +30,12 @@ JavaScript['variables_set'] = function(block) {
       block.getFieldValue('VAR'), NameType.VARIABLE);
   return 'var ' + varName + ' = ' + argument0 + ';\n';
 };
+
+
+JavaScript['infer_func'] = function (block) {
+  var varName = JavaScript.nameDB_.getName(
+    block.getFieldValue('VAR'), NameType.VARIABLE);
+  const order = 0;
+  code = 'return ' + varName + ';';
+  return code;
+};
