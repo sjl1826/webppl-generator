@@ -51,6 +51,40 @@ const blocks = createBlockDefinitionsFromJsonArray([
     'extensions': ['parent_tooltip_when_inline'],
   },
 
+  // Block for probability function.
+  {
+    'type': 'prob_func',
+    'message0': 'true with probability %1',
+    'args0': [{
+      'type': 'field_number',
+      'name': 'PROB',
+      'value': 0.5,
+    }],
+    'output': 'Probability',
+    'helpUrl': '%{BKY_MATH_NUMBER_HELPURL}',
+    'style': 'math_blocks',
+    'tooltip': '%{BKY_MATH_NUMBER_TOOLTIP}',
+    'extensions': ['parent_tooltip_when_inline'],
+  },
+
+  // Block for inference function.
+  {
+    'type': 'infer_func',
+    'message0': 'infer %1',
+    'args0': [
+      {
+        'type': 'field_variable',
+        'name': 'VAR',
+        'variable': '%{BKY_VARIABLES_DEFAULT_NAME}',
+      },
+    ],
+    'output': 'Inference',
+    'helpUrl': '%{BKY_MATH_NUMBER_HELPURL}',
+    'style': 'math_blocks',
+    'tooltip': '%{BKY_MATH_NUMBER_TOOLTIP}',
+    'extensions': ['parent_tooltip_when_inline'],
+  },
+
   // Block for basic arithmetic operator.
   {
     'type': 'math_arithmetic',

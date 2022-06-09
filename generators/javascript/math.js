@@ -24,6 +24,23 @@ JavaScript['math_number'] = function(block) {
   return [code, order];
 };
 
+JavaScript['prob_func'] = function (block) {
+  // Numeric value.
+  var code = Number(block.getFieldValue('PROB'));
+  const order = code >= 0 ? JavaScript.ORDER_ATOMIC :
+    JavaScript.ORDER_UNARY_NEGATION;
+  code = 'flip(' + code + ')';
+  return [code, order];
+};
+
+JavaScript['infer_func'] = function (block) {
+  var varName = JavaScript.nameDB_.getName(
+    block.getFieldValue('VAR'), NameType.VARIABLE);
+  const order = 0;
+  varName = 'var dist = Infer(\n { method: \'enumerate\' }, \n ' + varName + '); \nJSON.stringify(dist)';
+  return [varName, order];
+};
+
 JavaScript['math_arithmetic'] = function(block) {
   // Basic arithmetic operators, and power.
   const OPERATORS = {

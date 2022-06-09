@@ -158,9 +158,9 @@ JavaScript.init = function(workspace) {
   }
 
   // Declare all of the variables.
-  if (defvars.length) {
-    this.definitions_['variables'] = 'var ' + defvars.join(', ') + ';';
-  }
+  // if (defvars.length) {
+  //   this.definitions_['variables'] = 'var ' + defvars.join(', ') + ';';
+  // }
   this.isInitialized = true;
 };
 

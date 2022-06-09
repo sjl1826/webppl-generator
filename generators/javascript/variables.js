@@ -28,5 +28,5 @@ JavaScript['variables_set'] = function(block) {
                         block, 'VALUE', JavaScript.ORDER_ASSIGNMENT) || '0';
   const varName = JavaScript.nameDB_.getName(
       block.getFieldValue('VAR'), NameType.VARIABLE);
-  return varName + ' = ' + argument0 + ';\n';
+  return 'var ' + varName + ' = ' + argument0 + ';\n';
 };

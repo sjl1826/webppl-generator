@@ -322,6 +322,7 @@ goog.addDependency('../../generators/python/procedures.js', ['Blockly.Python.pro
 goog.addDependency('../../generators/python/text.js', ['Blockly.Python.texts'], ['Blockly.Names', 'Blockly.Python', 'Blockly.utils.string'], {'lang': 'es6', 'module': 'goog'});
 goog.addDependency('../../generators/python/variables.js', ['Blockly.Python.variables'], ['Blockly.Names', 'Blockly.Python'], {'lang': 'es6', 'module': 'goog'});
 goog.addDependency('../../generators/python/variables_dynamic.js', ['Blockly.Python.variablesDynamic'], ['Blockly.Python', 'Blockly.Python.variables'], {'lang': 'es6', 'module': 'goog'});
+goog.addDependency('../../generators/webppl.js', ['Blockly.WebPPL'], ['Blockly.Generator', 'Blockly.Names', 'Blockly.Variables', 'Blockly.inputTypes', 'Blockly.utils.global', 'Blockly.utils.object', 'Blockly.utils.string'], {'lang': 'es6', 'module': 'goog'});
 goog.addDependency('base.js', [], []);
 goog.addDependency('base_minimal.js', [], []);
 goog.addDependency('goog.js', [], [], {'lang': 'es6', 'module': 'es6'});

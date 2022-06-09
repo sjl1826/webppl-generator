@@ -6,7 +6,7 @@
 
 /**
  * @fileoverview Complete helper functions for generating JavaScript for
- *     blocks.  This is the entrypoint for javascript_compressed.js.
+ *     blocks.  This is the entrypoint for JavaScript_compressed.js.
  * @suppress {extraRequire}
  */
 'use strict';
