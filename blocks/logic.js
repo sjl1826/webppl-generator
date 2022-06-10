@@ -58,6 +58,21 @@ const blocks = createBlockDefinitionsFromJsonArray([
     'tooltip': '%{BKY_LOGIC_BOOLEAN_TOOLTIP}',
     'helpUrl': '%{BKY_LOGIC_BOOLEAN_HELPURL}',
   },
+  {
+    'type': 'observe',
+    'message0': 'observe that %1',
+    'args0': [
+      {
+        'type': 'input_value',
+        'name': 'BOOL',
+        'check': 'Boolean',
+      },
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    'style': 'logic_blocks',
+    'tooltip': "Observe that a certain conditional happens. Represents conditional probability."
+  },
   // Block for if/elseif/else condition.
   {
     'type': 'controls_if',
