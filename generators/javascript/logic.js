@@ -125,3 +125,13 @@ JavaScript['logic_ternary'] = function(block) {
   const code = value_if + ' ? ' + value_then + ' : ' + value_else;
   return [code, JavaScript.ORDER_CONDITIONAL];
 };
+
+JavaScript['observe'] = function(block) {
+  // Observe function. 
+  const conditionCode =
+    JavaScript.valueToCode(block, 'BOOL', JavaScript.ORDER_CONDITIONAL) ||
+    'false';
+  console.log(conditionCode);
+  const code = "condition(" + conditionCode + ");\n"; 
+  return code;
+}
